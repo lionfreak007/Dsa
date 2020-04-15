@@ -1,18 +1,75 @@
-# Python program to find the factorial of a number provided by the user.
+# binary tree - A , A->B A-> C , B->D , B->E , C-> F
+# leaf node-> D,E,F
+# bfs-> A - B -C - D - E -F
+# DFS- > A - B- D- E -C-F
 
 
-num = 7
+class Node:
+# How the binary tree will look like 
+    def __init__(self,data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+# code to implement Breadth first search
+
+    def breadthFirstSearch(root):
+        if root is None:
+            return
+
+        queue = []
+        queue.append(root)
+
+        while(le(queue) > 0):
+            print queue[0].data
+            node = queue.pop(0)
+
+        if node.left != None:
+            queue.append(node.left)
+
+        if node.right != None:
+            queue.append(node.right)
 
 
-factorial = 1
+# code to implement depth first search
+
+    def depthFirstSearch(root):
+        if root:
+            print(root.data)
+
+            print depthFirstSearch(root.left) 
+
+            print depthFirstSearch(root.right)                                    
 
 
-if num < 0:
-   print("Sorry, factorial does not exist for negative numbers")
-elif num == 0:
-   print("The factorial of 0 is 1")
-else:
-   for i in range(1,num + 1):
-       factorial = factorial*i
-   print("The factorial of",num,"is",factorial)
-   print ("I got the factorial number" )
+# coode to count leaf of  the tree
+    def countLeaves(node):
+        if node == null:
+            return 0
+
+        elif node.left == None and node.right == None :
+
+            return 1
+
+        else:
+            return countLeaves(node.left) + countLeaves(node.right)
+
+
+
+
+
+# setup a tree
+
+
+    root = Node(A)
+    root.left = Node(B)
+    root.right = Node(C)
+    root.left.left = Node(D)
+    root.left.right = Node(E)
+    root.right.left = Node(F)
+
+print "Breadth First search of the tree is : " breadthFirstSearch(root)'\n'
+
+print "Depth First search of the tree is : " depthFirstSearch(root)'\n'
+
+print "leaf count of the tree is : " (countLeaves(root)) 
