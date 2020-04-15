@@ -20,7 +20,7 @@ class Node:
         queue = []
         queue.append(root)
 
-        while(le(queue) > 0):
+        while(len(queue) > 0):
             print queue[0].data
             node = queue.pop(0)
 
