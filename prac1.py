@@ -22,14 +22,14 @@ def breadthFirstSearch(root):
     queue.append(root)
 
     while(len(queue) > 0):
-        print(queue[0].data)
         node = queue.pop(0)
+        if node.left != None:
+            queue.append(node.left)
 
-    if node.left != None:
-        queue.append(node.left)
+        if node.right != None:
+            queue.append(node.right)
 
-    if node.right != None:
-        queue.append(node.right)
+        print(node.data)
 
 
 # code to implement depth first search
@@ -38,9 +38,9 @@ def depthFirstSearch(root):
     if root:
         print(root.data)
 
-        print(depthFirstSearch(root.left))
+        depthFirstSearch(root.left)
 
-        print(depthFirstSearch(root.right))
+        depthFirstSearch(root.right)
 
 
 # coode to count leaf of  the tree
@@ -49,7 +49,6 @@ def countLeaves(node):
         return 0
 
     elif node.left == None and node.right == None:
-
         return 1
 
     else:
@@ -71,5 +70,4 @@ if __name__ == "__main__":
     print("Depth First search of the tree is :")
     depthFirstSearch(root)
 
-    print("leaf count of the tree is :")
-    countLeaves(root)
+    print(f"leaf count of the tree is : {countLeaves(root)}")
