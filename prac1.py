@@ -5,13 +5,14 @@
 
 
 class Node:
-# How the binary tree will look like
-    def __init__(self,data):
+    # How the binary tree will look like
+    def __init__(self, data):
         self.data = data
         self.left = None
         self.right = None
 
 # code to implement Breadth first search
+
 
 def breadthFirstSearch(root):
     if root is None:
@@ -47,12 +48,13 @@ def countLeaves(node):
     if node == None:
         return 0
 
-    elif node.left == None and node.right == None :
+    elif node.left == None and node.right == None:
 
         return 1
 
     else:
         return countLeaves(node.left) + countLeaves(node.right)
+
 
 # setup a tree
 if __name__ == "__main__":
@@ -63,8 +65,11 @@ if __name__ == "__main__":
     root.left.right = Node("E")
     root.right.left = Node("F")
 
-    print(f"Breadth First search of the tree is : {breadthFirstSearch(root)}'\n'")
+    print("Breadth First search of the tree is :")
+    breadthFirstSearch(root)
 
-    print(f"Depth First search of the tree is : {depthFirstSearch(root)}'\n'")
+    print("Depth First search of the tree is :")
+    depthFirstSearch(root)
 
-    print(f"leaf count of the tree is : {countLeaves(root)}")
+    print("leaf count of the tree is :")
+    countLeaves(root)
