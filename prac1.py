@@ -37,9 +37,9 @@ def depthFirstSearch(root):
     if root:
         print(root.data)
 
-    print(depthFirstSearch(root.left))
+        print(depthFirstSearch(root.left))
 
-    print(depthFirstSearch(root.right))
+        print(depthFirstSearch(root.right))
 
 
 # coode to count leaf of  the tree
