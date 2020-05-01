@@ -3,45 +3,20 @@ class Node:
         self.data = data
         self.next = None
 
-class LinkeList:
+class LinkedList:
     def __init__(self):
         self.head = None
+        self.last = None
 
-    def push(self,new_data):
+    def append(self, new_data):
         new_node = Node(new_data)
-        new_node.next = self.head
-        self.head = new_node
 
-
-  #  def append(self, new_data):
-  #      new_node = Node(new_data)
-  #      new_node.next = self.head
-
- #   if self.head is None:
- #       self.head = new_node
-        #return
-
-#    last = self.head
- #   while(last.next):
- #       last = last.next
-
- #   last.next = new_node   
-
-    def deleteNode(self, val):
-    
-        temp = self.head
-
-
-        while temp is not None:
-            if(temp.data == val):
-                break
-            prev = temp
-            temp = temp.next
-
-    
-
-        prev.next = temp.next
-        temp = None
+        if(self.head == None):
+            self.head = new_node
+            self.last = new_node
+        else:
+            self.last.next = new_node
+            self.last = new_node
 
     
     def reverse(self):  # using loops / iterattion
@@ -79,21 +54,18 @@ class LinkeList:
             temp = temp.next
 
 if __name__=='__main__':
-    llist = LinkeList()
-    llist.push(5)
-    llist.push(4)
-    llist.push(3)
-    llist.push(2)
-    llist.push(1)
+    llist = LinkedList()
+    llist.append(1)
+    llist.append(2)
+    llist.append(3)
+    llist.append(4)
+    llist.append(5)
  #   llist.append(6)
 
 
 print ("Linkedlist is : ")
 llist.printList()
 
-llist.deleteNode(2)
-print ("Deleted Node ")
-llist.printList()
 
 llist.reverse()
 print("Linkedlist iterative method")

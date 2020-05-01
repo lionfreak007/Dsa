@@ -1,13 +1,14 @@
-def Partition(low,mid,high):
-    i = low -1
+def Partition(low, mid, high):
+    i = 0
+    j = 0
     pivot = arr[high]
 
-    for j in range(low,high):
-        if arr[j]< pivot:
-            i =i + 1
-            arr[i],arr[j] = arr[j],arr[i]
+    for j in range(low, high-1):
+        if arr[j] < pivot:
+            arr[i + 1],arr[j] = arr[j],arr[i + 1]
+            i = i + 1
 
-    arr[i+1],arr[high] = arr[high],arr[i+1]
+    arr[i+1], arr[high] = arr[high], arr[i+1]
     return (i+1)
 
 
@@ -17,21 +18,12 @@ def quickSort(arr, low, high):
     quickSort(arr, low, p-1)
     quickSort(arr, p-1, high)
 
-def print_List(arr):
-    for i in range(len.arr):
-        print(arr[i] , end ='')
-    print()
 
 
-if __name__== '__main__':
-    arr =[10, 20, 40, 30, 70, 60]
 
-print("Unsorted array is: ")
-print_List()
-
-quickSort()
-
-print("Sorted array is :")
-print_List()
-
-
+arr = [10, 4, 7, 8, 1, 2] 
+n = len(arr) 
+quickSort(arr,0,n-1) 
+print ("Sorted array is:") 
+for i in range(n): 
+    print ("%d" %arr[i]), 
