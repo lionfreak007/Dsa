@@ -26,8 +26,33 @@ def print_nodes(ll_head):
     print(curr_node.val, end="\n")
 
 
+def odd_even_linkedlist(ll_head):
+    curr_odd = ll_head
+    curr_even = ll_head.next
+
+    odd_head = curr_odd
+    even_head = curr_even
+    last_odd_node = None
+    while(curr_odd != None):
+        last_odd_node = curr_odd
+
+        if(curr_even == None):
+            break
+        curr_odd.next = curr_even.next
+        curr_odd = curr_odd.next
+
+        if(curr_odd == None):
+            break
+        curr_even.next = curr_odd.next
+        curr_even = curr_even.next
+
+    last_odd_node.next = even_head
+    return odd_head
+
+
 if __name__ == "__main__":
     input_linked_list = input("Enter Linked List: ")
     list_array = input_linked_list.split('->')
     ll_head = create_linked_list(list_array)
-    print_nodes(ll_head)
+    merged_ll = odd_even_linkedlist(ll_head)
+    print_nodes(merged_ll)
