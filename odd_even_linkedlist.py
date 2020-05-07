@@ -36,8 +36,8 @@ def odd_even_linkedlist(ll_head):
     while(curr_odd != None):
         last_odd_node = curr_odd
 
-        if(curr_even == None):
-            break
+      #  if(curr_even == None):
+       #     break
         curr_odd.next = curr_even.next
         curr_odd = curr_odd.next
 
