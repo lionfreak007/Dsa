@@ -19,18 +19,10 @@ def partition(arr, low, high):
     return i+1
 
 
-def sort(arr, low, high):
-    if low >= high:
-        return
-    p = partition(arr, low, high)
-
-    sort(arr, low, p-1)
-    sort(arr, p+1, high)
-
-
 arr = [0, 1, 0, 1, 0, 0, 1, 1, 1, 0]
 n = len(arr)
-sort(arr, 0, n-1)
+
+partition(arr, 0, n-1)
 print("sorted array is:")
 for i in range(n):
     print("%d" % arr[i])
