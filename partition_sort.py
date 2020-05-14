@@ -16,6 +16,7 @@ def partition(arr, low, high):
             i += 1
 
     arr[i+1], arr[high] = arr[high], arr[i+1]
+    print(arr)
     return i+1
 
 
